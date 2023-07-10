@@ -8,15 +8,4 @@ import { PostsService } from 'libs/posts/data-access/src/lib/services/posts.serv
 })
 export class AppComponent {
   title = 'posts-app';
-
-  constructor(private postsService: PostsService){
-    this.title = this.postsService.title;
-    this.getPosts();
-  }
-
-  getPosts(){
-    this.postsService.getPosts().subscribe((response) => {
-      console.log(response);
-    })
-  }
 }
