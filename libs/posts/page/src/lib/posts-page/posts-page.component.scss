@@ -1,4 +1,9 @@
-.grid-size {
-  width: 1000px;
-  margin: auto;
+.message-container {
+  font-size: 32px;
+  height: 250px;
+  margin: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

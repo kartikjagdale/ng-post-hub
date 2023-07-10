@@ -10,18 +10,9 @@ import { Store } from '@ngrx/store';
 export class PostsPageComponent {
   posts$ = this.store.select(PostsSelectors.selectAllPosts);
   loaded$ = this.store.select(PostsSelectors.selectPostsLoaded);
-  constructor(private store: Store){
-    this.getPosts();
-    this.posts$.subscribe((response) => {
-      console.log(response);
-    });
+  error$ = this.store.select(PostsSelectors.selectPostsError);
 
-    this.loaded$.subscribe((loaded) => {
-      console.log(loaded);
-    })
-  }
-
-  getPosts(){
+  constructor(private store: Store) {
     this.store.dispatch(PostsActions.init());
   }
 }

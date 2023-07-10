@@ -34,7 +34,11 @@ const reducer = createReducer(
   on(PostsActions.loadPostsSuccess, (state, { posts }) =>
     postsAdapter.setAll(posts, { ...state, loaded: true })
   ),
-  on(PostsActions.loadPostsFailure, (state, { error }) => ({ ...state, error }))
+  on(PostsActions.loadPostsFailure, (state, { error }) => ({
+    ...state,
+    error,
+    loaded: true,
+  }))
 );
 
 export function postsReducer(state: PostsState | undefined, action: Action) {

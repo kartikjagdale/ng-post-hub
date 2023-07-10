@@ -5,7 +5,7 @@ import { POSTS_FEATURE_KEY, PostsState, postsAdapter } from './posts.reducer';
 export const selectPostsState =
   createFeatureSelector<PostsState>(POSTS_FEATURE_KEY);
 
-const { selectAll, selectEntities } = postsAdapter.getSelectors();
+const { selectAll } = postsAdapter.getSelectors();
 
 export const selectPostsLoaded = createSelector(
   selectPostsState,
@@ -20,20 +20,4 @@ export const selectPostsError = createSelector(
 export const selectAllPosts = createSelector(
   selectPostsState,
   (state: PostsState) => selectAll(state)
-);
-
-export const selectPostsEntities = createSelector(
-  selectPostsState,
-  (state: PostsState) => selectEntities(state)
-);
-
-export const selectSelectedId = createSelector(
-  selectPostsState,
-  (state: PostsState) => state.selectedId
-);
-
-export const selectEntity = createSelector(
-  selectPostsEntities,
-  selectSelectedId,
-  (entities, selectedId) => (selectedId ? entities[selectedId] : undefined)
 );

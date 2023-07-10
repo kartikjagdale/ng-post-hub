@@ -21,12 +21,12 @@ export class PostsEffects {
             .pipe(
               map(posts => PostsActions.loadPostsSuccess({ posts }))
             );
-        }
+        },
+        onError: ((_, error) => {
+          console.error('Error', error);
+          return of(PostsActions.loadPostsFailure({ error }));
+        })
       }),
-      catchError((error) => {
-        console.error('Error', error);
-        return of(PostsActions.loadPostsFailure({ error }));
-      })
     )}
   );
 }
