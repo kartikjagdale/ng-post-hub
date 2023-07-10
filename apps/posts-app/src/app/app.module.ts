@@ -8,6 +8,7 @@ import { appRoutes } from './app.routes';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { PostsDataAccessModule } from '@ng-post-hub/posts/data-access';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
@@ -26,6 +27,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     ),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
+    PostsDataAccessModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
