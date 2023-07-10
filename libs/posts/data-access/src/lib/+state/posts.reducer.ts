@@ -7,7 +7,6 @@ import { PostsEntity } from './posts.models';
 export const POSTS_FEATURE_KEY = 'posts';
 
 export interface PostsState extends EntityState<PostsEntity> {
-  selectedId?: string | number; // which Posts record has been selected
   loaded: boolean; // has the Posts list been loaded
   error?: string | null; // last known error (if any)
 }

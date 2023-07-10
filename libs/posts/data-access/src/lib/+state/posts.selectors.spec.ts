@@ -8,11 +8,12 @@ import * as PostsSelectors from './posts.selectors';
 
 describe('Posts Selectors', () => {
   const ERROR_MSG = 'No Error Available';
-  const getPostsId = (it: PostsEntity) => it.id;
-  const createPostsEntity = (id: string, name = '') =>
+  const createPostsEntity = (id: number): PostsEntity =>
     ({
       id,
-      name: name || `name-${id}`,
+      userId: id,
+      title: `title-${id}`,
+      body: `body-${id}`,
     } as PostsEntity);
 
   let state: PostsPartialState;
@@ -20,14 +21,9 @@ describe('Posts Selectors', () => {
   beforeEach(() => {
     state = {
       posts: postsAdapter.setAll(
-        [
-          createPostsEntity('PRODUCT-AAA'),
-          createPostsEntity('PRODUCT-BBB'),
-          createPostsEntity('PRODUCT-CCC'),
-        ],
+        [createPostsEntity(1), createPostsEntity(2), createPostsEntity(3)],
         {
           ...initialPostsState,
-          selectedId: 'PRODUCT-BBB',
           error: ERROR_MSG,
           loaded: true,
         }
@@ -38,17 +34,8 @@ describe('Posts Selectors', () => {
   describe('Posts Selectors', () => {
     it('selectAllPosts() should return the list of Posts', () => {
       const results = PostsSelectors.selectAllPosts(state);
-      const selId = getPostsId(results[1]);
 
       expect(results.length).toBe(3);
-      expect(selId).toBe('PRODUCT-BBB');
-    });
-
-    it('selectEntity() should return the selected Entity', () => {
-      const result = PostsSelectors.selectEntity(state) as PostsEntity;
-      const selId = getPostsId(result);
-
-      expect(selId).toBe('PRODUCT-BBB');
     });
 
     it('selectPostsLoaded() should return the current "loaded" status', () => {
