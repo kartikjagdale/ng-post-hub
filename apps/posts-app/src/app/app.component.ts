@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PostsService } from 'libs/posts/data-access/src/lib/services/posts.service';
 
 @Component({
   selector: 'ng-post-hub-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'posts-app';
+
+  constructor(private postsService: PostsService){
+    this.title = this.postsService.title;
+  }
 }
