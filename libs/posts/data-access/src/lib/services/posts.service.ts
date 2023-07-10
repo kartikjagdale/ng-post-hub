@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { PostsEntity } from '../+state/posts.models';
+
 @Injectable({
   providedIn: 'root',
 })
 export class PostsService {
   public title = 'PostHub';
+  private BASE_API_URL = 'https://jsonplaceholder.typicode.com/';
   constructor(private http: HttpClient) { }
 
-  getPosts() {
-    return this.http.get('assets/data.json');
+  getAllPosts() {
+    return this.http.get<{ quotes: PostsEntity[] }>(`assets/data.json`);
   }
 }

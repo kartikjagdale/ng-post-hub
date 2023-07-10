@@ -12,7 +12,7 @@ export class PostsPageComponent {
   }
 
   getPosts(){
-    this.postsService.getPosts().subscribe((response) => {
+    this.postsService.getAllPosts().subscribe((response) => {
       console.log(response);
     })
   }
