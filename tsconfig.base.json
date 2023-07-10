@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ng-post-hub/posts/data-access": ["libs/posts/data-access/src/index.ts"]
+      "@ng-post-hub/posts/data-access": ["libs/posts/data-access/src/index.ts"],
+      "@ng-post-hub/posts/page": ["libs/posts/page/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
