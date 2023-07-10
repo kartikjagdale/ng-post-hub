@@ -3,7 +3,7 @@ import { createEffect, Actions, ofType } from '@ngrx/effects';
 
 import * as PostsActions from './posts.actions';
 
-import { catchError, of, map } from 'rxjs';
+import { of, map } from 'rxjs';
 import { PostsService } from '../services/posts.service';
 import { fetch } from '@nrwl/angular';
 

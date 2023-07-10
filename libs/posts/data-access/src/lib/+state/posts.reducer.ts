@@ -8,7 +8,7 @@ export const POSTS_FEATURE_KEY = 'posts';
 
 export interface PostsState extends EntityState<PostsEntity> {
   loaded: boolean; // has the Posts list been loaded
-  error?: string | null; // last known error (if any)
+  error?: Object | null; // last known error (if any)
 }
 
 export interface PostsPartialState {
