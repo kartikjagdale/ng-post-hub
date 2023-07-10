@@ -11,5 +11,12 @@ export class AppComponent {
 
   constructor(private postsService: PostsService){
     this.title = this.postsService.title;
+    this.getPosts();
+  }
+
+  getPosts(){
+    this.postsService.getPosts().subscribe((response) => {
+      console.log(response);
+    })
   }
 }

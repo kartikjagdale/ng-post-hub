@@ -4,6 +4,5 @@ import { PostsService } from './services/posts.service';
 
 @NgModule({
   imports: [CommonModule],
-  providers: [PostsService],
 })
 export class PostsDataAccessModule {}

@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
-
-@Injectable()
+import { HttpClient } from '@angular/common/http';
+@Injectable({
+  providedIn: 'root',
+})
 export class PostsService {
   public title = 'PostHub';
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  getPosts() {
+    return this.http.get('https://jsonplaceholder.typicode.com/posts');
+  }
 }
