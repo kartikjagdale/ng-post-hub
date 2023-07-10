@@ -26,7 +26,7 @@ export const initialPostsState: PostsState = postsAdapter.getInitialState({
 
 const reducer = createReducer(
   initialPostsState,
-  on(PostsActions.initPosts, (state) => ({
+  on(PostsActions.init, (state) => ({
     ...state,
     loaded: false,
     error: null,

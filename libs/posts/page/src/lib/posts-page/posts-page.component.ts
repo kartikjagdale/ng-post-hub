@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { PostsService } from 'libs/posts/data-access/src/lib/services/posts.service';
+import { PostsActions, PostsSelectors } from '@ng-post-hub/posts/data-access';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'ng-post-hub-posts-page',
@@ -7,13 +8,20 @@ import { PostsService } from 'libs/posts/data-access/src/lib/services/posts.serv
   styleUrls: ['./posts-page.component.scss'],
 })
 export class PostsPageComponent {
-  constructor(private postsService: PostsService){
+  posts$ = this.store.select(PostsSelectors.selectAllPosts);
+  loaded$ = this.store.select(PostsSelectors.selectPostsLoaded);
+  constructor(private store: Store){
     this.getPosts();
+    this.posts$.subscribe((response) => {
+      console.log(response);
+    });
+
+    this.loaded$.subscribe((loaded) => {
+      console.log(loaded);
+    })
   }
 
   getPosts(){
-    this.postsService.getAllPosts().subscribe((response) => {
-      console.log(response);
-    })
+    this.store.dispatch(PostsActions.init());
   }
 }

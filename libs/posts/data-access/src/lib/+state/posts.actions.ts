@@ -1,11 +1,11 @@
 import { createAction, props } from '@ngrx/store';
 import { PostsEntity } from './posts.models';
 
-export const initPosts = createAction('[Posts Page] Init');
+export const init = createAction('[Posts Page] Init');
 
 export const loadPostsSuccess = createAction(
   '[Posts/API] Load Posts Success',
-  props<{ posts: PostsEntity[] }>()
+  props<{posts: PostsEntity[]}>()
 );
 
 export const loadPostsFailure = createAction(

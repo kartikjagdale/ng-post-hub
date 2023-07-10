@@ -1,23 +1,32 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 
 import * as PostsActions from './posts.actions';
-import * as PostsFeature from './posts.reducer';
 
-import { switchMap, catchError, of } from 'rxjs';
+import { catchError, of, map } from 'rxjs';
+import { PostsService } from '../services/posts.service';
+import { fetch } from '@nrwl/angular';
 
 @Injectable()
 export class PostsEffects {
-  private actions$ = inject(Actions);
 
-  init$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(PostsActions.initPosts),
-      switchMap(() => of(PostsActions.loadPostsSuccess({ posts: [] }))),
+  constructor(private actions$: Actions, private postsService: PostsService) {}
+
+  init$ = createEffect(() =>{
+    return this.actions$.pipe(
+      ofType(PostsActions.init),
+      fetch({
+        run: () => {
+          return this.postsService.getAllPosts()
+            .pipe(
+              map(posts => PostsActions.loadPostsSuccess({ posts }))
+            );
+        }
+      }),
       catchError((error) => {
         console.error('Error', error);
         return of(PostsActions.loadPostsFailure({ error }));
       })
-    )
+    )}
   );
 }

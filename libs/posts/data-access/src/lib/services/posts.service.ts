@@ -11,6 +11,6 @@ export class PostsService {
   constructor(private http: HttpClient) { }
 
   getAllPosts() {
-    return this.http.get<{ quotes: PostsEntity[] }>(`assets/data.json`);
+    return this.http.get<PostsEntity[]>(`assets/data.json`);
   }
 }
