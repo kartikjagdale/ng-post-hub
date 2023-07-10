@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { PostsEntity } from '@ng-post-hub/posts/data-access';
 
 @Component({
@@ -7,10 +7,14 @@ import { PostsEntity } from '@ng-post-hub/posts/data-access';
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent {
-  displayTitle = true;
+  @Input() displayTitle = true;
   @Input() post!: PostsEntity;
 
-  toggleTitle() {
+  @HostListener('click') onMouseClick(): void {
+    this.toogleDisplayTitle();
+  }
+
+  toogleDisplayTitle() {
     this.displayTitle = !this.displayTitle;
   }
 }

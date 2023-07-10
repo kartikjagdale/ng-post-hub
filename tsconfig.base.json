@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ng-post-hub/material": ["libs/material/src/index.ts"],
       "@ng-post-hub/posts/data-access": ["libs/posts/data-access/src/index.ts"],
       "@ng-post-hub/posts/page": ["libs/posts/page/src/index.ts"]
     }

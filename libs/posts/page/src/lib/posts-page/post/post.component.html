@@ -1,3 +1,7 @@
-<div (click)="toggleTitle()">
-  {{ displayTitle ? post.title : post.userId }}
-</div>
+<span class="title-box"
+  [ngClass]="{
+    'text-title': displayTitle,
+    'user-id-title': !displayTitle
+  }">
+  {{ displayTitle? post.title : post.userId }}
+</span>

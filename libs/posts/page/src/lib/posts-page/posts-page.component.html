@@ -1,9 +1,11 @@
 <ng-container *ngIf="(loaded$ | async); else isLoading">
   <ng-container *ngIf="[posts$ | async].length > 0; else noPosts">
-    <ng-post-hub-post
-      *ngFor="let post of posts$ | async"
-      [post]="post">
-    </ng-post-hub-post>
+        <mat-grid-list class="grid-size" cols="10" rowHeight="1:1" [gutterSize]="'5px'">
+          <mat-grid-tile *ngFor="let post of posts$ | async">
+            <ng-post-hub-post [post]="post" >
+            </ng-post-hub-post>
+          </mat-grid-tile>
+        </mat-grid-list>
   </ng-container>
 </ng-container>
 
