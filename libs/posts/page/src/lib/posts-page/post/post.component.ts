@@ -7,5 +7,10 @@ import { PostsEntity } from '@ng-post-hub/posts/data-access';
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent {
+  displayTitle = true;
   @Input() post!: PostsEntity;
+
+  toggleTitle() {
+    this.displayTitle = !this.displayTitle;
+  }
 }

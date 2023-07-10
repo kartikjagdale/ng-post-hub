@@ -1,3 +1,3 @@
-<div>
-  {{post.title}}
+<div (click)="toggleTitle()">
+  {{ displayTitle ? post.title : post.userId }}
 </div>
