@@ -1,10 +1,11 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, Input } from '@angular/core';
 import { PostsEntity } from '@ng-post-hub/posts/data-access';
 
 @Component({
   selector: 'ng-post-hub-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostComponent {
   @Input() displayTitle = true;

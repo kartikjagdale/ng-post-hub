@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PostsActions, PostsSelectors } from '@ng-post-hub/posts/data-access';
+import { PostsActions, PostsEntity, PostsSelectors } from '@ng-post-hub/posts/data-access';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -14,5 +14,9 @@ export class PostsPageComponent {
 
   constructor(private store: Store) {
     this.store.dispatch(PostsActions.init());
+  }
+
+  trackByPostId(_index: number, post: PostsEntity): number {
+    return post.id;
   }
 }

@@ -49,6 +49,11 @@ My main motivation behind choosing Nx and Monorepo approach for this project is 
   3. **Support for multiple framework**: we further can add multiple apps developed in otehr framework like React and Node.js and also share common logic between them. 
 
   The most beauftul thing i love about this is we can share Typescript interfaces library between backend and frontend apps, to ensure type safety and consitencey across apps.
+
+### **Angular Level Performance optimization**:
+  1. For displaying posts, I have used `async pipe` on posts observables, keeping it clean and also async pipe unSubscribes Observable on component destroy, so no need to do it manually.
+  2. I have provided `trackby` function on `ngFor`, this improves performance by preventing Angular from re-rendering elements that haven't changed.
+  3. Used `OnPush Change Detection Strategy` on child component i.e `PostComponent`, which improves performance  as Angular will only check the component for updates when the inputs change.
   
 ## Gothcas:
 Although there are some disadvantages of this setup, the only gotcha that i think mentioning is the initial time required to setup this architecture of the monorepo project, although in long term this is much more beneficial.
