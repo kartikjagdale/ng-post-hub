@@ -2,7 +2,11 @@
   "name": "ng-post-hub",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx run posts-app:serve:development",
+    "build:dev": "posts-app:build:development",
+    "build:prod": "nx run posts-app:build:production"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~15.2.0",
