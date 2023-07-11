@@ -55,8 +55,12 @@ My main motivation behind choosing Nx and Monorepo approach for this project is 
   2. I have provided `trackby` function on `ngFor`, this improves performance by preventing Angular from re-rendering elements that haven't changed.
   3. Used `OnPush Change Detection Strategy` on child component i.e `PostComponent`, which improves performance  as Angular will only check the component for updates when the inputs change.
   
-## Gothcas:
+## Gotchas:
 Although there are some disadvantages of this setup, the only gotcha that i think mentioning is the initial time required to setup this architecture of the monorepo project, although in long term this is much more beneficial.
+
+## Demo
+
+https://github.com/kartikjagdale/ng-post-hub/assets/7275347/4d87c249-12d3-49ef-93c1-f882df5f9db0
 
 ## Further help
 
