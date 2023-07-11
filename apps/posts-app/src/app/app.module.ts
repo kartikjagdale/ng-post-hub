@@ -14,8 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '@ng-post-hub/material';
 
 import { PostsDataAccessModule } from '@ng-post-hub/posts/data-access';
+import { PageNotFoundComponent } from './404-not-found.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

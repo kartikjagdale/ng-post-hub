@@ -6,15 +6,29 @@
 
 ## Development server
 
-Run `nx serve posts-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+Run `nx serve posts-app` or `npm run start` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
 ## Understand this workspace
 
 Run `nx graph` to see a diagram of the dependencies of the projects.
 
-## Remote caching
+<img src="./graph.png">
 
-Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and make CI faster.
+---
+
+In this project I have tired to display a posts using Nx MonoRepo Apporach.
+
+In the above graph you can see the dependencies of the projects and rough architectural overview of project
+Here:
+1. **Posts App**: Main application.
+2. **Posts Data Access**: It has a Ngrx data store for state management and `PostsService` for fetching data.
+3. **Posts Page**: Sub app displaying posts.
+4. **Material Module**: UI Material module for styling.
+
+---
+
+
+
 
 ## Further help
 
